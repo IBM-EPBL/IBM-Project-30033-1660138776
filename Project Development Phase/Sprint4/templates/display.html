@@ -1,0 +1,50 @@
+<head>
+    <style>
+        table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;}
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      tr:nth-child(even) {
+  background-color: #ffacdc;
+
+}
+.fadeIn {
+  opacity: 0;
+ transform: translate3d(0, 20px, 0);
+  transition: 0.25s all ease-in-out;
+}
+
+.fadeIn:hover {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+    </style> 
+</head>
+<!-- <div class="fadeIn"> -->
+    <table>
+        <thead>
+            <th>Amount</th>
+            <th>Income</th>
+            <th>Expense</th>
+            <th>Date</th>
+            <th>Category</th>
+        </thead>
+        <tbody>
+            {% for val in data %}
+            <tr>
+                <td>{{val['AMOUNT']}}</td>
+                <td>{{val['INCOME']}}</td>
+                <td>{{val['EXPENSE']}}</td>
+                <td>{{val['EXPENSEDATE']}}</td>
+                <td>{{val['CATEGORY']}}</td>
+            </tr>
+            {% endfor %} 
+        </tbody>
+    </table>
+<button align="center"><a href="/income">Back</a></button>
+</div>
