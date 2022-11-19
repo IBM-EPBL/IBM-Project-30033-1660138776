@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    
+
+    <title>webpage</title>
+       
+</head>
+<body>
+  <h1>Personal Expense Tracker Application</h1>
+<p><b>Make a budget and create the life<br> you have always dreamed of.....</b></p>
+<h5><b>Want to manage money?Want to plan your budget?<br><br>Want to recollect your history of expense?</b></h5>
+<button><a href="/register">Register</a></button>
+
+  
+<style>
+   
+h1{
+  font-size: 68px;
+  text-align: center;
+  background: -webkit-linear-gradient(rgb(52, 9, 48), rgb(148, 83, 83));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+}
+p{
+  font-size: 50px;
+  font-family: cursive;
+  color: #2c0127;
+  margin-left: 20px;
+  text-align: center;
+  margin-top: 40px;
+
+}
+.written {
+  color:rgb(53, 8, 62);
+  padding-top:20%;
+  padding-right: 50%;
+}
+h5{
+  color: #300a2c;
+  margin-left: 20px;
+  font-family: cursive;
+  text-align: center;
+}
+button{
+  color: #fff;
+  font-size: 16px;
+  padding: 12px 35px;
+  border-radius: 50px;
+  display: inline-block;
+  border: 0;
+  outline: 0;
+  box-shadow: 0px 4px 20px 0px #bb68b8;
+  background: -webkit-linear-gradient(rgb(52, 9, 48), rgb(148, 83, 83));
+  margin-left: 45%;
+  margin-top: 1%;
+ 
+}
+a{
+  text-decoration: none;
+  color:#fff ;
+}
+
+h2{ color:rgb(102, 34, 116); text-decoration: none;}
+.budget video{
+ position: absolute;
+ top: 0;
+ left: 0;
+ object-fit: cover;
+ width: 100%;
+ height: 100%;
+ pointer-events: none;
+ overflow: hidden;
+ background:linear-gradient(135deg, #8d1b8a  40%, #b795b0 100%);
+}
+.budget video .overlay{
+  position: absolute;
+ top: 0;
+ left: 0;
+ object-fit: cover;
+ width: 100%;
+ height: 100%;
+ pointer-events: none;
+
+}
+#back-video:before{
+  content:"";
+  position: absolute;
+  top:0;
+  right:0;
+  left:0;
+  bottom:0;
+  z-index:1;
+  background:linear-gradient(to right,rgba(224, 116, 99, 0.37),rgba(120, 15, 111, 0.3));
+}
+.budget{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    margin-right: 0;
+    margin-top: 0;
+    margin-left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    background-size: cover;
+}
+.wrapper{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #E087AE;
+  clip-path: circle(25px at calc(100% - 45px) 45px);
+  transition: all 0.3s ease-in-out;
+}
+#active:checked ~ .wrapper{
+  clip-path: circle(75%);
+}
+.menu-btn{
+  position: absolute;
+  z-index: 2;
+  right: 20px;
+  /* left: 20px; */
+  top: 20px;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+  background: #E087AE;
+  transition: all 0.3s ease-in-out;
+}
+#active:checked ~ .menu-btn{
+  color: #fff;
+}
+#active:checked ~ .menu-btn i:before{
+  content: "\f00d";
+}
+.wrapper ul{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  list-style: none;
+  text-align: center;
+}
+.wrapper ul li{
+  margin: 15px 0;
+}
+.wrapper ul li a{
+  color: none;
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: 500;
+  padding: 5px 30px;
+  color: #fff;
+  border-radius: 50px;
+  background: #000;
+  position: relative;
+  line-height: 50px;
+  transition: all 0.3s ease;
+}
+.wrapper ul li a:after{
+  position: absolute;
+  content: "";
+  background: #fff;
+   background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
+  /*background: linear-gradient(375deg, #1cc7d0, #2ede98);*/
+  width: 104%;
+  height: 110%;
+  left: -2%;
+  top: -5%; 
+  border-radius: 50px;
+  transform: scaleY(0);
+  z-index: -1;
+  animation: rotate 1.5s linear infinite;
+  transition: transform 0.3s ease;
+}
+.wrapper ul li a:hover:after{
+  transform: scaleY(1);
+}
+.wrapper ul li a:hover{
+  color: #fff;
+}
+input[type="checkbox"]{
+  display: none;
+}
+.content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  text-align: center;
+  width: 100%;
+  color: #202020;
+}
+.content .title{
+  font-size: 40px;
+  font-weight: 700;
+}
+.content p{
+  font-size: 35px;
+  font-weight: 600;
+}
+
+@keyframes rotate {
+  0%{
+    filter: hue-rotate(0deg);
+  }
+  100%{
+    filter: hue-rotate(360deg);
+  }
+}
+</style>
+    <input type="checkbox" id="active">
+    <label for="active" class="menu-btn"><i class="fas fa-bars"></i></label>
+ <div class="wrapper">
+     <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="/register">Register</a></li>
+      <li><a href="/login">Login</a></li>
+      <li><a href="/userprofile">Profile</a></li>
+     </ul>
+ </div>
+   
+ <div class="budget">
+  <div id="back-video">
+	<video  width="1500px" height="1000px" autoplay loop muted plays-inline>
+        <source src="{{ url_for('static', filename='budget.mp4') }}" type="video/mp4">
+    </video>
+</div>
+</div>
+</body>
+</html> 

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>User Profile Page</title>
+
+    <meta name="author" content="Codeconvey" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet"><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css'>
+
+
+    <link rel="stylesheet" href="/static/userprofile1.css" />
+    
+    
+	    <link rel="stylesheet" href="/static/userprofile2.css">
+</head>
+<body>
+  <form href="{{url_for('userprofile')}}">
+  {% for val in data %}
+		
+    <div class="wrapper">
+    <div class="logo">
+        <img src="/eatapps-1562790590.gif" alt="">
+    </div>
+    <ul class="nav-area">
+        <li><a href="{{url_for('logout')}}">Logout</a></li>
+        <li><a href="{{url_for('home')}}">Home</a></li>
+        <li><a href="{{url_for('button')}}">Expense</a></li>
+
+    </ul>
+    </div>
+
+    <header class="ScriptHeader">
+    <div class="rt-container">
+    	<div class="col-rt-12">
+        	<div class="rt-heading">
+            	<h1>USER PROFILE PAGE</h1>
+            </div>
+        </div>
+    </div>
+    </header>
+
+    <section>
+    <div class="rt-container">
+          <div class="col-rt-12">
+              <div class="Scriptcontent">
+              
+
+   <div class="student-profile py-4">
+    <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card shadow-sm">
+          <div class="card-header bg-transparent text-center">
+            <img class="profile_img" src="https://source.unsplash.com/600x300/?student" alt="student dp">
+            
+            <h3>{{val['FIRSTNAME']}}</h3>
+          </div>
+          <div class="card-body text-center">
+            <p class="mb-0"><strong class="pr-1">EMAIL:</strong>{{val['EMAIL']}}</p>
+            <p class="mb-0"><strong class="pr-1">INCOME:</strong>{{val['INCOME']}}</p>
+            {% endfor %} 
+         
+          </div>
+        </div>
+      </div>
+     
+ </form>
+	</body>
+</html>

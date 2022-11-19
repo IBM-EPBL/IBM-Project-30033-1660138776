@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-size: 28px;
+  font-family: 'Arial';
+  box-sizing: border-box;
+}
+
+.header {
+    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+  padding: 60px;
+  text-align: center;
+  color: aliceblue;
+  text-shadow: 2px 2px 4px #000000;
+
+}
+
+#navbar {
+    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: rgb(224, 15, 196);
+  color: white;
+}
+
+#navbar a.active {
+  background-color: rgb(218, 88, 201);
+  color: white;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+.input-container {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.icon {
+  padding: 10px;
+  background-image: radial-gradient( circle farthest-corner at 22.4% 21.7%, rgba(4,189,228,1) 0%, rgba(2,83,185,1) 100.2% );
+  color: white;
+  min-width: 70px;
+  text-align: center;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+}
+
+.input-field:focus {
+    background-image: radial-gradient( circle farthest-corner at 22.4% 21.7%, rgba(4,189,228,1) 0%, rgba(2,83,185,1) 100.2% );
+}
+
+/* Set a style for the submit button */
+.btn {
+    background-image: radial-gradient( circle farthest-corner at 22.4% 21.7%, rgba(4,189,228,1) 0%, rgba(2,83,185,1) 100.2% );
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+.btn:hover {
+  opacity: 1;
+}
+
+</style>
+</head>
+<body>
+<form action="{{ url_for('income')}}" method="post">
+<div class="header">
+<center><span style='font-size:100px;'>&#128220;</span><span style='font-size:100px;'>&#128221;</span><span style='font-size:100px;'>&#128246;</span></center>
+  <h2> PERSONAL EXPENSE TRACKER</h2>
+  <h3><span style='font-size:100px;'>&#128184;</span>ADD EXPENSE<span style='font-size:100px;'>&#128184;</span></h3>
+<div id="navbar">
+  <a class="active" href="/button"><i class="fa fa-hand-o-left"></i>Back</a>
+  <a href="/display"><i class="fa fa-table"></i> History Table</a>
+</div>
+</div>
+
+<div class="content">
+ 
+    <form style="max-width:500px;margin:auto">
+        <h2><i class="fa fa-plus-square icon"> INCOMEvsEXPENSE</i></h2>
+        <div class="input-container">
+            <i class="fa fa-rupee icon"></i>
+          <input class="input-field" type="number" placeholder="Amount" name="amount">
+        </div>
+      
+        <div class="input-container">
+            <i class="fa fa-money icon"></i>
+          <input class="input-field" type="number" placeholder="Income" name="income">
+        </div>
+        
+        <div class="input-container">
+            <i class="fa fa-bar-chart-o icon"></i>
+          <input class="input-field" type="number" placeholder="Expense" name="expense">
+        </div>
+        <div class="input-container">
+          <i class="fa fa-money icon"></i>
+        <input class="input-field" type="date" placeholder="date" name="expensedate">
+      </div>
+        <!-- <p> Expense Details<br>(like Grocery,Education,Hospital,etc.....)</p> -->
+        <div class="input-container">
+            <i class="fa fa-calendar-check-o icon"></i>
+	    <select name="category">
+		    <option value="hos">Hospital</option>
+		    <option value="ent">Entertainment</option>
+		    <option value="shop">Shopping</option>
+		    <option value="groc">Grocery</option>
+		    <option value="edu">Eduacation</option>
+	    </select>
+	</div>
+       
+        <button type="submit" class="btn"><i class="fa fa-thumbs-up" style="font-size:24px">Add Expense</i></button>
+      </form></div>
+</form>    
+
+
+
+</body>
+</html>

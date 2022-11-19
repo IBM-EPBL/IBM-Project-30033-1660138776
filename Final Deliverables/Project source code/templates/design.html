@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Items', 'Income', 'Expenses'],
+      ['Education', 10000,     1000 ],
+      ['Grocery',  9000,      1500],
+      ['Hospital',  7500,       250],
+      ['vehicle',  7250,    250  ]
+    ]);
+
+    var options = {
+      title: 'Expense Tracker',
+      curveType: 'function',
+      legend: { position: 'bottom' }
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+    chart.draw(data, options);
+  }
+</script>
+  <style>
+    body  {
+      background-image: "{{ url_for('static', filename='images/bg1.jpg') }}"
+    }
+.navbar {
+  overflow: hidden;
+  background-image: linear-gradient(to right, #8e2de2, #4a00e0);
+  font-family: Arial, Helvetica, sans-serif;
+}
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color:#1e0076;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+   background-color: #8e2de2;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.dropdown .dropbtn {
+  cursor: pointer;
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color:#1e0076;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
+   background-color:#daebef;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-image: linear-gradient(to right, #8e2de2, #4a00e0);
+  min-width: 160px;
+  box-shadow: #daebef;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color:#1e0076;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color:#daebef;
+}
+
+.show {
+  display: block;
+}
+table{
+ background-image: linear-gradient(to left, #8e2de2, #4a00e0);
+ font-family: Arial, Helvetica, sans-serif;}
+
+td{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color:whitesmoke;
+    font-size: xx-large;
+}
+
+income{
+    width: 200px;
+    background-image: radial-gradient( circle farthest-corner at 22.4% 21.7%, rgba(4,189,228,1) 0%, rgba(2,83,185,1) 100.2% );
+    font-family: Arial, Helvetica, sans-serif;
+    align-items:right;
+    color:#1e0076;
+    float: right;
+    font-size: 16px;
+    text-align: center;
+    padding: 14px 10px;
+    text-decoration: none;
+
+}
+
+wallet{
+    
+    width: 200px;
+    background-image: radial-gradient( circle farthest-corner at 22.4% 21.7%, rgba(4,189,228,1) 0%, rgba(2,83,185,1) 100.2% );
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: right;
+    color:#1e0076;
+    float: right;
+    font-size: 16px;
+    text-align: center;
+    padding: 14px 10px;
+    text-decoration: none;
+}
+balance {
+ 
+  width: 200px;
+  background-image: radial-gradient( circle farthest-corner at 22.4% 21.7%, rgba(4,189,228,1) 0%, rgba(2,83,185,1) 100.2% );
+  font-family: Arial, Helvetica, sans-serif;
+  align-items:right;
+  color:#1e0076;
+  float: right;
+  font-size: 16px;
+  text-align: center;
+  padding: 14px 10px;
+  text-decoration: none;
+}
+
+</style>
+</head>
+<body>
+
+ <div class="dropdown">
+  <button class="dropbtn" onclick="myFunction()">Menu
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <form action="{{ url_for('wallet') }}" method="post"></form>
+  <div class="dropdown-content" id="myDropdown">
+    <hr><br>
+    <a href="#back"><center><i class="fa fa-hand-o-left" style="font-size:24px"></i>  Back</center></a><hr><br>
+    <a href="#history"><center><i class="fa fa-table" style="font-size:24px"></i> History Table</center></a><hr><br>
+    <a href="/income"><center><i class="fa fa-rupee" style="font-size:24px"></i>  Add Expense</center></a><hr><br>
+    <a href="#limit"><center><i class="fa fa-line-chart" style="font-size:24px"></i>  Set Limit</center></a>  </hr></br>
+  </div>
+  </div>
+  </div> 
+
+ <div class="navbar">
+  <a href="#home"><i class="fa fa-home"></i> Home</a>
+  <a href="#notify"><i class="fa fa-envelope"></i>  Notify</a>
+
+</form>  
+</div>
+<script type="text/javascript">
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+  var myDropdown = document.getElementById("myDropdown");
+    if (myDropdown.classList.contains('show')) {
+      myDropdown.classList.remove('show');
+    }
+  }
+}
+</script>
+</br><br>
+<hr><br>
+<image>
+<img src="{{ url_for('static', filename='bg1.jpg') }}" width="200" height="150" align="left"><hr><br>
+</image>
+</br>
+<table width="85%" height="50%" align="right">
+    <tr><td align="center">PERSONAL EXPENSE TRACKER</td></tr>
+</table>
+</br><br><br><br><br><br><br><br>
+<div id="curve_chart" style="width: 900px; height: 300px"></div>
+<income> CURRENT INCOME </BR>RS 10,000</income>
+<wallet>WALLET LIMIT</BR>RS 1,500</wallet>
+<balance>BALANCE</BR>RS1,000</balance>
+</body>
+</html>
